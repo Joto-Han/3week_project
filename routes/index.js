@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 
-const postsRouter = require('./posts.routes');
-router.use('/posts/', postsRouter);
+const regiRouter = require('./register.routes');
+router.use('/', regiRouter);
 
 module.exports = router;
