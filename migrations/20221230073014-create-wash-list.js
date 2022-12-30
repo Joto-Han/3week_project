@@ -1,35 +1,35 @@
-'use strict';
+"use strict";
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
   async up(queryInterface, Sequelize) {
-    await queryInterface.createTable('wash_lists', {
-      id: {
+    await queryInterface.createTable("wash_lists", {
+      wash_id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
-        type: Sequelize.INTEGER
+        type: Sequelize.INTEGER,
       },
       status: {
         allowNull: false,
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
       },
       extra: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
       },
       image: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
       },
       createdAt: {
         allowNull: false,
-        type: Sequelize.DATE
+        type: Sequelize.DATE,
       },
       updatedAt: {
         allowNull: false,
-        type: Sequelize.DATE
-      }
+        type: Sequelize.DATE,
+      },
     });
   },
   async down(queryInterface, Sequelize) {
-    await queryInterface.dropTable('wash_lists');
-  }
+    await queryInterface.dropTable("wash_lists");
+  },
 };
