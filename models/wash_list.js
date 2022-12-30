@@ -11,6 +11,7 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
+      models.wash_list.belongsTo(models.user, { foreignKey: 'user_id' });
     }
   }
   wash_list.init({

@@ -11,6 +11,8 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
+      models.user.hasMany(models.review, { foreignKey: 'user_id' });
+      models.user.hasMany(models.wash_list, { foreignKey: 'user_id' });
     }
   }
   user.init({
