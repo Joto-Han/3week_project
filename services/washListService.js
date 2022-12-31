@@ -14,6 +14,6 @@ class WashListService {
       };
     });
   };
-};
+}
 
 module.exports = WashListService;
