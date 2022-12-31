@@ -15,7 +15,7 @@ module.exports = (sequelize, DataTypes) => {
     }
   }
   wash_list.init({
-    id: {
+    wash_id: {
       allowNull: false,
       autoIncrement: true,
       primaryKey: true,

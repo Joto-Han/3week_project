@@ -1,18 +1,27 @@
 const { user } = require('../models');
 
 class RegiRepository {
-  // findAllPost = async () => {
-  //   // ORM인 Sequelize에서 user 모델의 findAll 메소드를 사용해 데이터를 요청합니다.
-  //   const posts = await user.findAll();
 
-  //   return posts;
-  // }
+  createuser = async (nickname, password, phone_number, address,user_type) => {
 
-  createuser = async (nickname, password, phone_number, address) => {
-    // ORM인 Sequelize에서 user 모델의 create 메소드를 사용해 데이터를 요청합니다.
-    const createRegiData = await user.create({ nickname, password, phone_number, address });
+    const existsUsers = await user.findAll({
+      where: { nickname: nickname },
+    });
 
-    return createRegiData;
+    if (existsUsers.length) {
+      console.log("이미 존재하는 닉네임입니다.")
+      return existsUsers
+    }
+
+    if(user_type === '0') {
+      const createRegiData = await user.create({ nickname, password, phone_number, address,user_type,point: 1000000 });
+      console.log("레지스터 레퍼지토리 - 저장 성공 : 회원")
+      return createRegiData;
+    } else if (user_type === '1') {
+      const createRegiData = await user.create({ nickname, password, phone_number, address,user_type,point: 0 });
+      console.log("레지스터 레퍼지토리 - 저장 성공 : 사업자")
+      return createRegiData;
+    }
   }
 }
 
