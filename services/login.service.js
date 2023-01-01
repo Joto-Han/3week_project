@@ -10,16 +10,23 @@ class logiService {
 
     const user = await this.loginRepository.userlogin(nickname,password)
 
-    if(user === null || password !== user.password) {
-        return {
-          errorMessage:"닉네임 또는 패스워드가 일치하지 않습니다."
-        }
+    try {
+
+      if(user === null || password !== user.password) {
+          return {
+            errorMessage:"닉네임 또는 패스워드가 일치하지 않습니다."
+          }
+      }
+  
+      const token = jwt.sign({nickname: nickname }, "customized-secret-key");
+      console.log("이것은 토큰입니다." , token);
+      
+      return {token}
+    } catch(err) {
+      console.log("에러난 이유:", err);
+      return {errorMessage:"알 수 없는 에러가 발생하였습니다.(로그인)"}
     }
 
-    const token = jwt.sign({nickname: nickname }, "customized-secret-key");
-    console.log("이것은 토큰입니다." , token);
-    
-    return {token}
   }
 }
 
