@@ -3,7 +3,7 @@ const WashListRepository = require('../repositories/washList.repository');
 class WashListService {
   washListRepository = new WashListRepository();
 
-  findAllWashList = async () => {
+  findWashAll = async () => {
     const washListData = await this.washListRepository.findWashAll();
 
     return washListData.map((data) => {

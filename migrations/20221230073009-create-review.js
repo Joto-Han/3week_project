@@ -20,6 +20,10 @@ module.exports = {
       image: {
         type: Sequelize.STRING
       },
+      shop_name: {
+        allowNull: false,
+        type: Sequelize.STRING,
+      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE

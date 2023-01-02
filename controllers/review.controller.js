@@ -1,0 +1,15 @@
+const ReviewService = require('../services/review.service');
+
+class ReviewController {
+  reviewService = new ReviewService();
+
+  reviewList = async (req, res, next) => {
+    let shop_name = "스파르타세탁소"
+    
+    const shopReview = await this.reviewService.reviewList(shop_name);
+
+    res.status(200).json({ data: shopReview });
+  };
+};
+
+module.exports = ReviewController;
