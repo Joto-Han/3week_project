@@ -1,4 +1,4 @@
-const { wash_list } = require("../models");
+const { wash_list, user } = require("../models");
 
 class OwnerWashRepository {
   findOwnerWashById = async (wash_id) => {
@@ -7,21 +7,19 @@ class OwnerWashRepository {
     return ownerWash;
   };
 
-  //   findUserWashById = async (wash_id) => {
-  //     const userData = await wash_list.findOne({
-  //       where: { user_id: wash_id },
-  //       //   raw: true,
-  //       //   attributes: ["user.nickname", "user.address", "user.phone_number"],
-  //       include: [
-  //         {
-  //           model: user,
-  //           required: true,
-  //           attributes: ["nickname", "address", "phone_number"],
-  //         },
-  //       ],
-  //     });
-  //     return userData;
-  //   };
+  findUserWashById = async (wash_id) => {
+    const userData = await wash_list.findOne({
+      where: { user_id: wash_id },
+      include: [
+        {
+          model: user,
+          required: true,
+          attributes: ["nickname", "address", "phone_number"],
+        },
+      ],
+    });
+    return userData;
+  };
 }
 
 module.exports = OwnerWashRepository;

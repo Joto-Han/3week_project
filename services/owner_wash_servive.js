@@ -9,9 +9,9 @@ class OwnerWashService {
     const findWashData = await this.ownerWashRepository.findOwnerWashById(
       wash_id
     );
-    // const findUserData = await this.ownerWashRepository.findUserWashById(
-    //   wash_id
-    // );
+    const findUserData = await this.ownerWashRepository.findUserWashById(
+      wash_id
+    );
 
     return {
       wash_id: findWashData.wash_id,
@@ -21,9 +21,9 @@ class OwnerWashService {
       createdAt: findWashData.createdAt,
       updatedAt: findWashData.updatedAt,
       user_id: findWashData.user_id,
-      // nickname: findUserData.nickname,
-      // address: findUserData.address,
-      // phone_number: findUserData.phone_number,
+      nickname: findUserData.user.nickname,
+      address: findUserData.user.address,
+      phone_number: findUserData.user.phone_number,
     };
   };
 }
