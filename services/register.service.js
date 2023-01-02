@@ -4,9 +4,9 @@ class RegiService {
   regiRepository = new registerRepository();
 
 
-  createuser = async (nickname, password, phone_number, address, user_type) => {
+  createuser = async (nickname, password, phone_number, address) => {
 
-    const createRegiData = await this.regiRepository.createuser(nickname, password, phone_number, address, user_type);
+    const createRegiData = await this.regiRepository.createuser(nickname, password, phone_number, address);
     console.log("레지스트 서비스")
     return {
       user_id: createRegiData.null,
@@ -16,7 +16,7 @@ class RegiService {
       address: createRegiData.address,
       createdAt: createRegiData.createdAt,
       updatedAt: createRegiData.updatedAt,
-      user_type: createRegiData.user_type,
+      point: createRegiData.point
     };
   }
 }

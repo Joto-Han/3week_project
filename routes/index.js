@@ -8,6 +8,8 @@ const authmiddleware = require('../middleware/auth-middleware');
 console.log("인덱스");
 const regiRouter = require('./register.routes');
 const loginRouter = require('./login.routes');
-router.use('/api', regiRouter,loginRouter);
+const testRouter = require('./test.routes');
+const regiShopRouter = require('./register_shop.routes');
+router.use('/api', regiRouter,loginRouter,testRouter,regiShopRouter);
 
 module.exports = router;

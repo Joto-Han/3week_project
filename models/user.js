@@ -39,13 +39,10 @@ module.exports = (sequelize, DataTypes) => {
       allowNull: false,
       type: DataTypes.INTEGER,
     },
-    user_type: {
-      allowNull: false,
-      type: DataTypes.INTEGER,
-    },
     point: {
       allowNull: false,
       type: DataTypes.INTEGER,
+      defaultValue: 1000000,
     },
   }, {
     sequelize,
