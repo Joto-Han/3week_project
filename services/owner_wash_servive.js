@@ -12,7 +12,6 @@ class OwnerWashService {
     const findUserData = await this.ownerWashRepository.findUserWashById(
       wash_id
     );
-    console.log({ findUserData });
 
     return {
       wash_id: findWashData.wash_id,
