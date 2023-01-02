@@ -26,6 +26,34 @@ class OwnerWashService {
       phone_number: findUserData.user.phone_number,
     };
   };
+
+  statusUpdate = async (wash_id, status) => {
+    const findWash = await this.ownerWashRepository.findOwnerWashById(wash_id);
+    if (!findWash) throw new Error("Wash_list doesn't exist");
+
+    const statusUpdate = await this.ownerWashRepository.findOwnerWashById(
+      wash_id
+    );
+    let updateStatus = "";
+    if (statusUpdate.status === "수거중") {
+      updateStatus = "수거완료";
+    }
+    if (statusUpdate.status === "수거완료") {
+      updateStatus = "배송중";
+    }
+    if (statusUpdate.status === "배송중") {
+      updateStatus = "배송완료";
+    }
+    if (statusUpdate.status === "배송완료") {
+      // 상태 업데이트 버튼 숨기기
+    }
+
+    await this.ownerWashRepository.statusUpdate(wash_id, updateStatus);
+    return {
+      wash_id: statusUpdate.wash_id,
+      status: updateStatus,
+    };
+  };
 }
 
 module.exports = OwnerWashService;

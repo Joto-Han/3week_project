@@ -20,6 +20,14 @@ class OwnerWashRepository {
     });
     return userData;
   };
+
+  statusUpdate = async (wash_id, status) => {
+    const washStatus = await wash_list.update(
+      { status },
+      { where: { wash_id } }
+    );
+    return washStatus;
+  };
 }
 
 module.exports = OwnerWashRepository;

@@ -9,6 +9,18 @@ class OwnerWashController {
 
     res.status(200).json({ data: ownerWash });
   };
+
+  statusUpdate = async (req, res, next) => {
+    const { wash_id } = req.params;
+    const { status } = req.body;
+    console.log("controll status = ", req.body);
+    const statusUpdate = await this.ownerWashService.statusUpdate(
+      wash_id,
+      status
+    );
+
+    res.status(200).json({ data: statusUpdate });
+  };
 }
 
 module.exports = OwnerWashController;
