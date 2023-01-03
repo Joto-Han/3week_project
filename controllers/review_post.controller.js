@@ -9,9 +9,9 @@ class ReviewPostController {
     const { image, star_rating, content } = req.body;
     console.log("1");
     const reviewPostData = await this.reviewPostService.reviewPost(
-      image,
-      star_rating,
       content,
+      star_rating,
+      image,
       shop_id
     );
     console.log("1-1");

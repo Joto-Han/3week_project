@@ -8,12 +8,19 @@ class ReviewPostService {
     console.log("2");
     const reviewShopData = await this.reviewPostRepository.findShop(shop_id);
     console.log("2-1");
-    console.log(reviewShopData);
+    console.log(reviewShopData.shop_name);
+    const reviewData = await this.reviewPostRepository.reviewPost(
+      content,
+      star_rating,
+      image,
+      reviewShopData.shop_name
+    );
+    console.log(reviewData);
     return {
       shop_id: reviewShopData.shop_id,
-      // image: reviewPostData.image,
-      // star_rating: reviewPostData.star_rating,
-      // content: reviewPostData.content,
+      // image: reviewShopData.image,
+      // star_rating: reviewShopData.star_rating,
+      // content: reviewShopData.content,
     };
   };
 }
