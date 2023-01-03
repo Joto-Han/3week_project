@@ -18,11 +18,15 @@ module.exports = (req, res, next) => {
 
   try {
 
-    let {shop_id, iat, exp} = shopId
-    let {shop_id:a} = shop_id
+    // let {shop_id, iat, exp} = shopId
+    // let {shop_id:a} = shop_id
+    // console.log("a : ", a);
+    // console.log(shop_id);
+    // console.log(shopId);
 
-    shop.findByPk(a).then((shop) => {
-      res.locals.user = shop.shop_id;
+    shop.findByPk(shopId.shop_id).then((shop) => {
+      res.locals.user = shop.dataValues;
+      console.log(res.locals.user);
       next();
     });
   } catch (err) {

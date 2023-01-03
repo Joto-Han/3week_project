@@ -1,9 +1,5 @@
 const express = require("express");
 const router = express.Router();
-const { Op } = require('sequelize');
-const { user } = require('../models');
-const jwt = require('jsonwebtoken');
-const authmiddleware = require('../middleware/auth-middleware');
 
 const regiRouter = require("./register.routes");
 const ownerWashRouter = require("./owner_wash.routes");
@@ -12,6 +8,6 @@ const loginRouter = require('./login.routes');
 const testRouter = require('./test.routes');
 const regiShopRouter = require('./register_shop.routes');
 const loginShopRouter = require('./login_shop.routes')
-router.use('/api', regiRouter,loginRouter,testRouter,regiShopRouter,ownerWashRouter,washList,loginShopRouter);
+router.use('/', regiRouter,loginRouter,testRouter,regiShopRouter,ownerWashRouter,washList,loginShopRouter);
 
 module.exports = router;

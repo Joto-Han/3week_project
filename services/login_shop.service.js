@@ -10,7 +10,7 @@ class loginService {
     }
   
     findtoken = async(shop_id) => {
-      const token = jwt.sign({ shop_id: shop_id},"customized-secret-key",{expiresIn: "15m"})
+      const token = jwt.sign(shop_id,"customized-secret-key",{expiresIn: "15m"})
       return {token:token}
     }
   }

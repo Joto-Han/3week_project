@@ -44,7 +44,7 @@ class loginService {
     }
   
     findtoken = async(user_id) => {
-      const token = jwt.sign({ user_id: user_id},"customized-secret-key",{expiresIn: "15m"})
+      const token = jwt.sign(user_id ,"customized-secret-key",{expiresIn: "15m"})
       return {token:token}
     }
   }

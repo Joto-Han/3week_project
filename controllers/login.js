@@ -10,6 +10,7 @@ class loginController {
     if(!nickname || !password) {
       res.status(400).json({errorMessage: "닉네임과 비밀번호를 입력해주세요."})
     }
+    
     try {
       const loginData = await this.logService.finduser(nickname, password)
       const {token} = await this.logService.findtoken(loginData)
