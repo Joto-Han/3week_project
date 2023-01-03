@@ -1,6 +1,5 @@
 const OwnerWashRepository = require("../repositories/owner_wash.repository");
-const { wash_list } = require("../models/wash_list.js");
-const user = require("../models/user");
+const { wash_list, user } = require("../models");
 
 class OwnerWashService {
   ownerWashRepository = new OwnerWashRepository(wash_list);
@@ -24,6 +23,10 @@ class OwnerWashService {
       nickname: findUserData.user.nickname,
       address: findUserData.user.address,
       phone_number: findUserData.user.phone_number,
+      // test 코드용
+      // nickname: findUserData.nickname,
+      // address: findUserData.address,
+      // phone_number: findUserData.phone_number,
     };
   };
 
@@ -35,16 +38,16 @@ class OwnerWashService {
       wash_id
     );
     let updateStatus = "";
-    if (statusUpdate.status === "수거중") {
-      updateStatus = "수거완료";
+    if (statusUpdate.status === 1) {
+      updateStatus = 2;
     }
-    if (statusUpdate.status === "수거완료") {
-      updateStatus = "배송중";
+    if (statusUpdate.status === 2) {
+      updateStatus = 3;
     }
-    if (statusUpdate.status === "배송중") {
-      updateStatus = "배송완료";
+    if (statusUpdate.status === 3) {
+      updateStatus = 4;
     }
-    if (statusUpdate.status === "배송완료") {
+    if (statusUpdate.status === 4) {
       // 상태 업데이트 버튼 숨기기
     }
 

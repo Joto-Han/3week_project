@@ -1,6 +1,10 @@
 const { wash_list, user } = require("../models");
 
 class OwnerWashRepository {
+  // constructor(WashListModel, UserModel) {
+  //   this.washListModel = WashListModel; // wash_list
+  //   this.userModel = UserModel; // user
+  // }
   findOwnerWashById = async (wash_id) => {
     const ownerWash = await wash_list.findByPk(wash_id);
 
@@ -9,10 +13,10 @@ class OwnerWashRepository {
 
   findUserWashById = async (wash_id) => {
     const userData = await wash_list.findOne({
-      where: { user_id: wash_id },
+      where: { wash_id },
       include: [
         {
-          model: user,
+          model: user, // this.userModel,
           required: true,
           attributes: ["nickname", "address", "phone_number"],
         },
