@@ -2,7 +2,8 @@ const express = require("express");
 const router = express.Router();
 
 const regiRouter = require("./register.routes");
-const ownerWashRouter = require("./owner_wash.routes");
-router.use("/", regiRouter, ownerWashRouter);
+const userViewRouter = require("./user_view.routes");
+const reviewPostRouter = require("./review_post.routes");
+router.use("/", regiRouter, userViewRouter, reviewPostRouter);
 
 module.exports = router;
