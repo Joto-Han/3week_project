@@ -4,20 +4,23 @@ const { wash_list, user } = require("../models");
 class OwnerWashService {
   ownerWashRepository = new OwnerWashRepository(wash_list);
 
-  findOwnerWashById = async (wash_id) => {
-    const shop_id = res.locals.user;
+  findOwnerWashById = async (wash_id, shop_id) => {
+    console.log("2");
+    // console.log("res.locals.user = ", res.locals.user);
+    // const { shop_id } = res.locals.user;
+    console.log("2-1");
+
     const findWashData = await this.ownerWashRepository.findOwnerWashById(
       wash_id
     );
+    if (findWashData.shop_id !== shop_id) {
+      console.log("findWashData.shop_id =", findWashData.shop_id);
+      console.log("shop_id =", shop_id);
+      return res.status(400).json({ success: false });
+    }
     const findUserData = await this.ownerWashRepository.findUserWashById(
       wash_id
     );
-    if (findWashData.shop_id !== shop_id) {
-      return res
-        .status(400)
-        .json({ success: false, errorMessage: "shop_id가 다릅니다." });
-    }
-
     return {
       wash_id: findWashData.wash_id,
       status: findWashData.status,

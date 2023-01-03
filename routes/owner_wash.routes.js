@@ -1,7 +1,7 @@
 const express = require("express");
 const router = express.Router();
 
-const shopMiddleware = require("../middleware/auth-middleware_shop");
+const shopMiddleware = require("../middleware/auth-middleware_shop.js");
 const OwnerWashController = require("../controllers/owner_wash.controller");
 const ownerWashController = new OwnerWashController();
 
