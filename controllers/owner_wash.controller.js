@@ -12,7 +12,7 @@ class OwnerWashController {
 
       res.status(200).json({ data: ownerWash });
     } catch (error) {
-      res.status(400).json({ errorMessage: error.message });
+      res.status(400).json({ errorMessage: "shop_id가 다릅니다." });
     }
   };
 

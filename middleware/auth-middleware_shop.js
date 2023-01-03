@@ -1,11 +1,17 @@
+const express = require("express");
 const jwt = require("jsonwebtoken");
+const router = express.Router(); //
 const { shop } = require("../models");
+const cookieParser = require("cookie-parser"); //
+
+router.use(cookieParser()); //
 
 module.exports = (req, res, next) => {
-  const { cookie } = req.headers
+  const { cookie } = req.headers;
   const [authType, authToken] = (cookie || "").split("=");
-  console.log("[1]authToken:", authToken);
+  // console.log("[1]authToken:", authToken);
   const shopId = jwt.verify(authToken, "customized-secret-key");
+  console.log("3", shopId);
 
   if (!authToken || authType !== "token") {
     console.log("[2]로그인 정보 없을때 쿠키:", cookie);
@@ -17,17 +23,14 @@ module.exports = (req, res, next) => {
   }
 
   try {
-
-    let {shop_id, iat, exp} = shopId
-    let {shop_id:a} = shop_id
-
+    let { shop_id, iat, exp } = shopId;
+    let { shop_id: a } = shop_id;
     shop.findByPk(a).then((shop) => {
       res.locals.user = shop.shop_id;
       next();
     });
   } catch (err) {
     res.status(444).send({
-      
       err: "로그인 중 에러가 발생하였습니다.",
     });
     console.log(err);

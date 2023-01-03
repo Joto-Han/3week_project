@@ -5,12 +5,18 @@ class OwnerWashService {
   ownerWashRepository = new OwnerWashRepository(wash_list);
 
   findOwnerWashById = async (wash_id) => {
+    const shop_id = res.locals.user;
     const findWashData = await this.ownerWashRepository.findOwnerWashById(
       wash_id
     );
     const findUserData = await this.ownerWashRepository.findUserWashById(
       wash_id
     );
+    if (findWashData.shop_id !== shop_id) {
+      return res
+        .status(400)
+        .json({ success: false, errorMessage: "shop_id가 다릅니다." });
+    }
 
     return {
       wash_id: findWashData.wash_id,
