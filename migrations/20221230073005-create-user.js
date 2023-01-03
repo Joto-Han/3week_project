@@ -26,10 +26,6 @@ module.exports = {
         allowNull: false,
         type: Sequelize.INTEGER,
       },
-      user_type: {
-        allowNull: false,
-        type: Sequelize.INTEGER,
-      },
       point: {
         allowNull: false,
         type: Sequelize.INTEGER,
