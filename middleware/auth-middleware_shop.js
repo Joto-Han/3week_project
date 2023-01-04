@@ -1,8 +1,13 @@
+const express = require("express");
 const jwt = require("jsonwebtoken");
+const router = express.Router(); //
 const { shop } = require("../models");
+const cookieParser = require("cookie-parser"); //
+
+router.use(cookieParser()); //
 
 module.exports = (req, res, next) => {
-  const { cookie } = req.headers
+  const { cookie } = req.headers;
   const [authType, authToken] = (cookie || "").split("=");
 
 
@@ -32,7 +37,6 @@ module.exports = (req, res, next) => {
     });
   } catch (err) {
     res.status(444).send({
-      
       err: "로그인 중 에러가 발생하였습니다.",
     });
     console.log(err);

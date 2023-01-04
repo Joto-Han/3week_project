@@ -6,6 +6,7 @@ class OwnerWashRepository {
   //   this.userModel = UserModel; // user
   // }
   findOwnerWashById = async (wash_id) => {
+    console.log("3");
     const ownerWash = await wash_list.findByPk(wash_id);
 
     return ownerWash;
