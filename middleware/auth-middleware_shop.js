@@ -4,8 +4,7 @@ const { shop } = require("../models");
 module.exports = (req, res, next) => {
   const { cookie } = req.headers
   const [authType, authToken] = (cookie || "").split("=");
-  console.log("[1]authToken:", authToken);
-  const shopId = jwt.verify(authToken, "customized-secret-key");
+
 
   if (!authToken || authType !== "token") {
     console.log("[2]로그인 정보 없을때 쿠키:", cookie);
@@ -18,6 +17,8 @@ module.exports = (req, res, next) => {
 
   try {
 
+    console.log("[1]authToken:", authToken);
+    const shopId = jwt.verify(authToken, "customized-secret-key");
     // let {shop_id, iat, exp} = shopId
     // let {shop_id:a} = shop_id
     // console.log("a : ", a);

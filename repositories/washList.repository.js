@@ -4,7 +4,10 @@ class WashListRepository {
   findWashAll = async () => {
 
     try {
-      const washList = await wash_list.findAll();
+      const washList = await wash_list.findAll({
+        where: { status: 0 },
+      }
+      );
   
       return washList;
       
