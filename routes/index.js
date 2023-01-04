@@ -18,7 +18,7 @@ router.use(
   ownerWashRouter,
   washList,
   loginShopRouter,
-  reviewRouter
+  reviewRouter,
 );
 
 module.exports = router;
