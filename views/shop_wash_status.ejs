@@ -14,7 +14,7 @@
     <link rel="stylesheet" href="../static/css/reset.css" />
     <link rel="stylesheet" href="../static/css/header.css" />
     <link rel="stylesheet" href="../static/css/shop_wash_status.css" />
-    <script src="../static/js/shop_status_update.js"></script>
+    <script src="./static/js/status_update.js"></script>
   </head>
   <body>
     <header>
@@ -61,13 +61,12 @@
           <form action="" id="shop_wash_status">
             <fieldset></fieldset>
           </form>
-          <button
+          <input
             class="status_update_btn"
             type="button"
             onclick="status_update()"
-          >
-            진행상황 업데이트 하기
-          </button>
+            value="진행상황 업데이트 하기"
+          />
         </div>
       </div>
     </main>
