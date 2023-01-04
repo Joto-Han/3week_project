@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>::: 로그인 :::</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../static/css/reset.css" />
+    <link rel="stylesheet" href="../static/css/sign.css" />
+    <script src="../static/js/login.js"></script>
+  </head>
+  <script>
+    function login_user() {
+      const nickname = $("#nickname").val();
+      const password = $("#password").val();
+      alert("됬니?");
+
+      $.ajax({
+        type: "POST",
+        url: "/api/auth",
+        data: {
+          nickname,
+          password,
+        },
+        success: function (response) {
+          token = response.token;
+          alert("로그인 성공!");
+          setlogin();
+        },
+        error: function (error) {
+          alert(error.responseJSON.errorMessage);
+        },
+      });
+    }
+    function setlogin() {
+      if (token) {
+        console.log(token);
+        $.ajax({
+          type: "get",
+          url: "api/test",
+          data: {},
+          success: function (response) {
+            location.href = "/api/wash_list";
+          },
+        });
+      }
+    }
+
+    //           if (response['msg'] == '로그인 성공') {
+    //             window.location.href = '/';
+    //           } else {
+    //             alert(response['msg']);
+    //           }
+    //         },
+    //       });
+
+    // }
+
+    function register() {
+      alert("하이루!");
+    }
+  </script>
+  <body>
+    <div class="sign_wrap">
+      <div class="register_wrap">
+        <h2>로그인</h2>
+        <ul class="user_type">
+          <li class="user_login">사용자 로그인</li>
+          <li class="shop_login">사업자 로그인</li>
+        </ul>
+        <input type="text" name="nickname" id="nickname" placeholder="닉네임" />
+        <input
+          type="password"
+          name="password"
+          id="password"
+          placeholder="비밀번호"
+        />
+
+        <input
+          class="user_signin"
+          type="submit"
+          onclick="login_user()"
+          name="user_signin_submit"
+          value="로그인"
+        />
+        <input
+          class="shop_signin"
+          type="submit"
+          onclick="login_shop()"
+          name="shop_signin_submit"
+          value="로그인"
+        />
+        <input
+          type="button"
+          name="signup_button"
+          onclick="register()"
+          value="회원가입하기"
+        />
+      </div>
+    </div>
+  </body>
+</html>
