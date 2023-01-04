@@ -1,4 +1,4 @@
-const UserViewService = require("../services/user_view_servive");
+const UserViewService = require("../services/user_view_service");
 
 class userViewController {
   userViewService = new UserViewService();
