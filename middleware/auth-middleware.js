@@ -4,8 +4,6 @@ const { user } = require("../models");
 module.exports = (req, res, next) => {
   const { cookie } = req.headers
   const [authType, authToken] = (cookie || "").split("=");
-  console.log("[1]authToken:", authToken);
-  const userId = jwt.verify(authToken, "customized-secret-key");
 
   if (!authToken || authType !== "token") {
     console.log("[2]로그인 정보 없을때 쿠키:", cookie);
@@ -17,17 +15,21 @@ module.exports = (req, res, next) => {
   }
 
   try {
+    console.log("[1]authToken:", authToken);
+    const userId = jwt.verify(authToken, "customized-secret-key");
+    // let {user_id, iat, exp} = userId
+    // let {user_id:a} = user_id
+    // console.log("a : ", a);
+    // console.log(userId);
+    // console.log(user_id);
 
-    let {user_id, iat, exp} = userId
-    let {user_id:a} = user_id
-
-    user.findByPk(a).then((user) => {
-      res.locals.user = user.user_id;
+    user.findByPk(userId.user_id).then((user) => {
+      res.locals.user = user.dataValues; 
       next();
     });
+
   } catch (err) {
     res.status(444).send({
-      
       err: "로그인 중 에러가 발생하였습니다.",
     });
     console.log(err);

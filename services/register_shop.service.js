@@ -16,7 +16,8 @@ class RegiService {
       address: createRegiData.address,
       createdAt: createRegiData.createdAt,
       updatedAt: createRegiData.updatedAt,
-      point: createRegiData.point
+      point: createRegiData.point,
+      shop_status: createRegiData.shop_status,
     };
   }
 }
