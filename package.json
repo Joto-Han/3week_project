@@ -32,14 +32,4 @@
     "sequelize-cli": "^6.5.2",
     "supertest": "^6.3.3"
   }
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/Joto-Han/3week_project.git"
-  },
-  "bugs": {
-    "url": "https://github.com/Joto-Han/3week_project/issues"
-  },
-  "homepage": "https://github.com/Joto-Han/3week_project#readme",
-  "description": ""
-}
+  }

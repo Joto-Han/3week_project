@@ -9,6 +9,7 @@ const testRouter = require("./test.routes");
 const regiShopRouter = require("./register_shop.routes");
 const loginShopRouter = require("./login_shop.routes");
 const reviewRouter = require("./review.router");
+const washAddRouter = require("./wash_add.routes");
 router.use(
   "/",
   regiRouter,
@@ -19,6 +20,7 @@ router.use(
   washList,
   loginShopRouter,
   reviewRouter,
+  washAddRouter,
 );
 
 module.exports = router;
