@@ -3,10 +3,14 @@ const WashListService = require('../services/washListService');
 class WashListController {
   washListService = new WashListService();
 
-  washListAll = async (req, res, next) => {
-    const washList = await this.washListService.findAllWashList();
-    console.log(washList)
-    res.status(201).json({ data: washList });
+  findWashAll = async (req, res, next) => {
+    try {
+      const washList = await this.washListService.findWashAll();
+      
+      res.status(201).json({ data: washList });
+    } catch (error) {
+      res.status(400).json({errorMessege: error.message})
+    }
   };
 };
 

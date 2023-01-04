@@ -1,7 +1,6 @@
 {
   "name": "3week_project",
   "version": "1.0.0",
-  "description": "",
   "main": "index.js",
   "scripts": {
     "test": "jest --forceExit",
@@ -34,4 +33,4 @@
     "sequelize-cli": "^6.5.2",
     "supertest": "^6.3.3"
   }
-}
+  }
