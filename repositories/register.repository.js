@@ -1,18 +1,28 @@
+const { json } = require('sequelize');
 const { user } = require('../models');
 
 class RegiRepository {
-  // findAllPost = async () => {
-  //   // ORM인 Sequelize에서 user 모델의 findAll 메소드를 사용해 데이터를 요청합니다.
-  //   const posts = await user.findAll();
-
-  //   return posts;
-  // }
 
   createuser = async (nickname, password, phone_number, address) => {
-    // ORM인 Sequelize에서 user 모델의 create 메소드를 사용해 데이터를 요청합니다.
-    const createRegiData = await user.create({ nickname, password, phone_number, address });
 
-    return createRegiData;
+    const existsUsers = await user.findAll({
+      where: { nickname: nickname },
+    });
+    try {
+
+      if (existsUsers.length) {
+        console.log("이미 존재하는 닉네임입니다.")
+        return existsUsers
+      }
+      
+        const createRegiData = await user.create({ nickname, password, phone_number, address });
+        console.log("레지스터 레퍼지토리 - 저장 성공 : 회원")
+        return createRegiData;
+        
+    } catch (err) {
+      console.log("회원가입중 알수 없는 에러 발생:",err);
+      return
+    }
   }
 }
 
