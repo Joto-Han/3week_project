@@ -14,7 +14,7 @@
     color: #fff;
 }
 
-h1 {
+h2 {
     display: flex;
     justify-content: center;
     align-items:center;    
@@ -25,7 +25,7 @@ h1 {
     border-bottom: 1px solid #fff;
 }
 
-h1.update {
+h2.update {
     margin-bottom: 30px;
 }
 .user_type {
@@ -67,7 +67,7 @@ h1.update {
 }
 
 .password_check {
-    /* display: none; */
+    display: none;
 }
 
 input[type="text"],
