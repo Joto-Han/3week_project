@@ -10,6 +10,7 @@ const regiShopRouter = require("./register_shop.routes");
 const loginShopRouter = require("./login_shop.routes");
 const reviewRouter = require("./review.router");
 const washAddRouter = require("./wash_add.routes");
+const userViewRouter = require("./user_view.routes");
 router.use(
   "/",
   regiRouter,
@@ -21,6 +22,7 @@ router.use(
   loginShopRouter,
   reviewRouter,
   washAddRouter,
+  userViewRouter,
 );
 
 module.exports = router;
