@@ -7,8 +7,9 @@ class WashAddRepository {
     return userData;
   };
 
-  washAdd = async (image, nickname, address, phone_number, extra) => {
+  washAdd = async (user_id, image, nickname, address, phone_number, extra) => {
     const washAddData = await wash_list.create({
+      user_id,
       image,
       nickname,
       address,

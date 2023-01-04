@@ -4,8 +4,10 @@ class WashAddController {
   washAddService = new WashAddService();
   // 세탁물 추가
   washAdd = async (req, res, next) => {
-    const { image, nickname, address, phone_number, extra } = req.body;
+    // const { user_id } = req.params;
+    const { user_id, image, nickname, address, phone_number, extra } = req.body;
     const washAddData = await this.washAddService.washAdd(
+      user_id,
       image,
       nickname,
       address,

@@ -4,13 +4,14 @@ const { wash } = require("../models");
 class WashAddService {
   WashAddRepository = new WashAddRepository(wash);
   // 세탁물 추가
-  washAdd = async (image, nickname, address, phone_number, extra) => {
+  washAdd = async (user_id, image, nickname, address, phone_number, extra) => {
     const userData = await this.WashAddRepository.findUser(
       nickname,
       address,
       phone_number
     );
     const washData = await this.WashAddRepository.washAdd(
+      user_id,
       image,
       userData.nickname,
       userData.address,
