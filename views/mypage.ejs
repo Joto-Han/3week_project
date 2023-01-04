@@ -14,6 +14,8 @@
     <link rel="stylesheet" href="../static/css/reset.css" />
     <link rel="stylesheet" href="../static/css/header.css" />
     <link rel="stylesheet" href="../static/css/mypage.css" />
+    <!-- <script src="./static/js/status_update.js"></script> -->
+    <script src="./static/js/mypage.js"></script>
   </head>
   <body>
     <header>
@@ -42,10 +44,28 @@
           <li class="status_3">배송중</li>
           <li class="status_4">배송완료</li>
         </ul>
-        <div class="my_laundry_btn">
-          <a href=""><p class="user_confirm">세탁완료하기</p></a>
+        <input
+          type="button"
+          class="user_confirm_test"
+          onclick="test()"
+          value="테스트버튼"
+        />
+        <input
+          type="button"
+          class="user_confirm"
+          onclick="user_confirm()"
+          value="세탁완료하기"
+        />
+        <input
+          type="button"
+          class="review_write"
+          onclick="review_write()"
+          value="리뷰 작성"
+        />
+        <!-- <div class="my_laundry_btn" class="user_confirm">
+          <a href="" onclick><p class="user_confirm">세탁완료하기</p></a>
           <a href=""><p class="review_write">리뷰 작성</p></a>
-        </div>
+        </div> -->
       </div>
 
       <a href=""><div class="laundry_add">세탁추가하기</div></a>
