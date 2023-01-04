@@ -6,9 +6,10 @@ const router = require("./routes");
 
 app.use(express.json());
 app.use("/api", router);
+app.use("/", express.static("assets"));
 
 app.get("/", (req, res) => {
-  res.status(200).send("여기는 index 페이지");
+  res.status(200).render("index.html");
 });
 
 app.listen(port, () => {

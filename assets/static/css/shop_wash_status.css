@@ -63,6 +63,10 @@
     color: var(--sub-color-2);
 }
 
+.status_1 {
+    color: var(--point-color)
+}
+
 .status_update_btn {
     position: absolute;
     bottom: 40px;
