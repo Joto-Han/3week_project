@@ -30,3 +30,12 @@ function review_write() {
     3000
   );
 }
+
+function laundry_add() {
+  alert("세탁물을 추가 신청합니다.");
+  $.ajax({
+    success: function (response) {
+      location.href = "http://localhost:4000/laundry_add";
+    },
+  });
+}

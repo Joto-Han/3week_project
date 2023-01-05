@@ -12,9 +12,9 @@
       href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="../static/css/reset.css" />
-    <link rel="stylesheet" href="../static/css/header.css" />
-    <link rel="stylesheet" href="../static/css/mypage.css" />
+    <link rel="stylesheet" href="./static/css/reset.css" />
+    <link rel="stylesheet" href="./static/css/header.css" />
+    <link rel="stylesheet" href="./static/css/mypage.css" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <!-- <script src="../static/js/index.js"></script> -->
     <script src="./static/js/header.js"></script>
@@ -24,8 +24,8 @@
       <div class="header_wrap" id="header_wrap" name="header_wrap">
     </header>
 
-    <main>
-      <div class="my_laundry">
+    <main id="mypage">
+      <!-- <div class="my_laundry">
         <p class="shop_name">${shop_name}</p>
         <p class="laundry_date">2023-01-04</p>
         <ul class="status_wrap">
@@ -53,13 +53,12 @@
           onclick="review_write()"
           value="리뷰 작성"
         />
-        <!-- <div class="my_laundry_btn" class="user_confirm">
+        <div class="my_laundry_btn" class="user_confirm">
           <a href="" onclick><p class="user_confirm">세탁완료하기</p></a>
           <a href=""><p class="review_write">리뷰 작성</p></a>
-        </div> -->
-      </div>
-
-      <a href=""><div class="laundry_add">세탁추가하기</div></a>
+        </div>
+      </div> -->
     </main>
+    <a href=""><div class="laundry_add" onclick="laundry_add()">세탁추가하기</div></a>
   </body>
 </html>
