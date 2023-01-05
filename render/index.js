@@ -33,3 +33,5 @@ router.get("/shop_wash_status", (req, res) => {
 });
 
 module.exports = router;
+
+module.exports = router;
