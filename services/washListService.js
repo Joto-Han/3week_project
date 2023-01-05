@@ -13,6 +13,7 @@ class WashListService {
           status: data.status,
           extra: data.extra,
           image: data.image,
+          wash_id
         };
       });
     } catch (error) {
