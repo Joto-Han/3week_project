@@ -11,7 +11,7 @@ function edit_shop() {
     } else {
         $.ajax({
             type: 'put',
-            url: '/api/edit',
+            url: '/api/edit_shop',
             data: {
               shop_name, password,address,shop_number
             },

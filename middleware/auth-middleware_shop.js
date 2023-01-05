@@ -30,8 +30,7 @@ module.exports = async (req, res, next) => {
 
     await shop.findByPk(shopId.shop_id).then((shop) => {
       res.locals.user = shop.dataValues;
-      console.log("🔥🔥🔥 샵 미들웨어 🔥🔥🔥");
-      // console.log(res.locals.user);
+      console.log("[2]", res.locals.user);
       next();
     });
   } catch (err) {

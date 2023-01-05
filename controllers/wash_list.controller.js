@@ -4,6 +4,7 @@ class WashListController {
   washListService = new WashListService();
 
   findWashAll = async (req, res, next) => {
+    console.log("컨트롤러 단계 1");
     try {
       console.log("🔥🔥🔥 1 🔥🔥🔥");
       const washList = await this.washListService.findWashAll();

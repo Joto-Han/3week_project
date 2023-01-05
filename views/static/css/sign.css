@@ -129,7 +129,7 @@ input[type="submit"].user_signup{
 input[type="submit"].shop_signin,
 input[type="submit"].shop_edit,
 input[type="submit"].shop_signup{
-    display: none;
+    /* display: none; */
 }
 
 input[type="button"] {
