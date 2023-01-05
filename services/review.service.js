@@ -1,4 +1,4 @@
-const ReviewRepository = require('../repositories/review.repository');
+const ReviewRepository = require("../repositories/review.repository");
 
 class ReviewService {
   reviewRepository = new ReviewRepository();
@@ -14,14 +14,13 @@ class ReviewService {
           star_rating: data.star_rating,
           // Image: data.Image,
           user_id: data.user_id,
-          shop_name: data.shop_name
+          shop_name: data.shop_name,
         };
       });
     } catch (error) {
-
-      throw error
+      throw error;
     }
   };
-};
+}
 
 module.exports = ReviewService;

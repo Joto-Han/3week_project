@@ -14,8 +14,8 @@ class OwnerWashService {
       wash_id
     );
     if (findWashData.shop_id !== shop_id) {
-      console.log("findWashData.shop_id =", findWashData.shop_id);
-      console.log("shop_id =", shop_id);
+      // console.log("findWashData.shop_id =", findWashData.shop_id);
+      // console.log("shop_id =", shop_id);
       return res.status(400).json({ success: false });
     }
     const findUserData = await this.ownerWashRepository.findUserWashById(
