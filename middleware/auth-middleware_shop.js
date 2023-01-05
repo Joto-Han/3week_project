@@ -5,10 +5,10 @@ const { shop } = require("../models");
 const cookieParser = require("cookie-parser"); //
 
 router.use(cookieParser()); //
-
-module.exports = async (req, res, next) => {
+module.exports = (req, res, next) => {
   const { cookie } = req.headers;
   const [authType, authToken] = (cookie || "").split("=");
+
 
   if (!authToken || authType !== "token") {
     console.log("[2]로그인 정보 없을때 쿠키:", cookie);
@@ -20,6 +20,7 @@ module.exports = async (req, res, next) => {
   }
 
   try {
+
     console.log("[1]authToken:", authToken);
     const shopId = jwt.verify(authToken, "customized-secret-key");
     // let {shop_id, iat, exp} = shopId
@@ -28,9 +29,9 @@ module.exports = async (req, res, next) => {
     // console.log(shop_id);
     // console.log(shopId);
 
-    await shop.findByPk(shopId.shop_id).then((shop) => {
+    shop.findByPk(shopId.shop_id).then((shop) => {
       res.locals.user = shop.dataValues;
-      console.log("[2]", res.locals.user);
+      console.log("[2]",res.locals.user);
       next();
     });
   } catch (err) {

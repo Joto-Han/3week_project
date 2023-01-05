@@ -8,7 +8,6 @@ function reviewList() {
         url: "api/shopReview",
         data: {},
         success: function (response) {
-            console.log(response);
 
             const rows = response.data;
             for (let i in rows) {
