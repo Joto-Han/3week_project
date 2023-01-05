@@ -4,9 +4,6 @@ class loginController {
   logService = new loginService();
 
   getlogin = async (req, res, next) => {
-    console.log(req.body);
-    console.log(req.params);
-    console.log(req.query);
     const { nickname, password } = req.body;
     console.log("컨트롤러 단계에서의 닉네임", nickname);
     console.log("컨트롤러 단계에서의 패스워드", password);

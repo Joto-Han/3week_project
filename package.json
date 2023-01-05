@@ -20,6 +20,7 @@
     "express-session": "^1.17.3",
     "jinja": "^0.13.4",
     "jsonwebtoken": "^9.0.0",
+    "morgan": "^1.10.0",
     "mysql2": "^2.3.3",
     "passport": "^0.6.0",
     "passport-local": "^1.0.0",
