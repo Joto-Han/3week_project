@@ -20,7 +20,7 @@ function getshop_info() {
                                     <a href="http://localhost:4000/"><li class="user_logout" onclick="deleteCookie('test_cookie')">로그아웃</li></a>
                                     <li class="user_nickname">${user_data.shop_name}님</li>
                                     </ul>
-                                    <p class="user_point">잔여 포인트 : ${user_data.point}</p>`
+                                    <p class="user_point">잔여 포인트! : ${user_data.point}</p>`
             $('#header_wrap').append(empty_html);
         }
     })
