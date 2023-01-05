@@ -5,7 +5,9 @@ class WashListController {
 
   findWashAll = async (req, res, next) => {
     try {
+      console.log("🔥🔥🔥 1 🔥🔥🔥");
       const washList = await this.washListService.findWashAll();
+      console.log("🔥🔥🔥 1-1 🔥🔥🔥");
 
       res.status(201).json({ data: washList });
     } catch (error) {

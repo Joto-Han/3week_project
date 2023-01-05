@@ -1,16 +1,26 @@
-const { shop } = require('../models');
+const { shop, wash_list } = require("../models");
 
 class loginRepository {
-
-    finduser = async (shop_name, password) => {
-    console.log("로그인 레포지토리");
-    console.log("매장명:", shop_name);
-    
+  finduser = async (shop_name, password) => {
     const exuser = await shop.findOne({
       where: { shop_name: shop_name },
-    })
-    return exuser
-  }
+    });
+    return exuser;
+  };
+
+  findShopWash = async (shop_id) => {
+    const findShopWash = await shop.findOne({
+      where: { shop_id },
+      include: [
+        {
+          model: wash_list,
+          required: true,
+          attributes: ["wash_id"],
+        },
+      ],
+    });
+    return findShopWash;
+  };
 }
 
 module.exports = loginRepository;

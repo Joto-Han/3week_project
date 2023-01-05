@@ -6,7 +6,22 @@ class loginService {
 
   finduser = async (shop_name, password) => {
     const finduser = await this.loginRepository.finduser(shop_name, password);
-    return { shop_id: finduser.shop_id };
+
+    const findShopWash = await this.loginRepository.findShopWash(
+      finduser.shop_id
+    );
+    // console.log(
+    //   "wash_id_findShopWash = ✨✨✨",
+    //   findShopWash.wash_lists[0].wash_id
+    // );
+    if (findShopWash === null) {
+      return { shop_id: finduser.shop_id };
+    } else {
+      return {
+        shop_id: finduser.shop_id,
+        wash_id: findShopWash.wash_lists[0].wash_id,
+      };
+    }
   };
 
   findtoken = async (shop_id) => {
