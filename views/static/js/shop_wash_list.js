@@ -17,16 +17,11 @@ function getshop_info() {
                                     <ul class="gnb">
                                     <a href="my_review"><li class="user_review">리뷰관리</li></a>
                                     <a href="http://localhost:4000/my_info_edit_shop"><li class="user_info_edit">회원정보수정</li></a>
-                                    <a href="http://localhost:4000/"><li class="user_logout" onclick="deleteCookie()">로그아웃</li></a>
+                                    <a href="http://localhost:4000/logout"><li class="user_logout">로그아웃</li></a>
                                     <li class="user_nickname">${user_data.shop_name}님</li>
                                     </ul>
                                     <p class="user_point">잔여 포인트! : ${user_data.point}</p>`
             $('#header_wrap').append(empty_html);
         }
     })
-}
-
-function deleteCookie() {
-    alert("이게 뜨면 로그아웃 버튼이 눌려진거임!")
-    document.cookie = token + '=; expires=Thu, 01 Jan 1999 00:00:10 GMT;';
 }

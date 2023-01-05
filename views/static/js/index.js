@@ -17,7 +17,7 @@ function getuser_info() {
                                     <ul class="gnb">
                                     <a href="my_review"><li class="user_review">리뷰관리</li></a>
                                     <a href="http://localhost:4000/my_info_edit"><li class="user_info_edit">회원정보수정</li></a>
-                                    <a href="http://localhost:4000/logout"><li class="user_logout" onclick="logout()">로그아웃</li></a>
+                                    <a href=""><li class="user_logout" onclick="logout()">로그아웃</li></a>
                                     <a><li class="user_nickname">${user_data.nickname}님</li></a>
                                     </ul>
                                     <p class="user_point">잔여 포인트 : ${user_data.point}</p>`
@@ -26,8 +26,15 @@ function getuser_info() {
     })
 }
 
-const logout = function(token){
-    location.href = 'http://localhost:4000/logout'
+function logout(){
+    
+    $.removeCookie("token", { path: "/" });
+    alert("로그아웃 눌렀냐!????")
+}
+
+// const logout = function(){
+//     alert("로그아웃 눌렀니? ")
+//     location.href = 'http://localhost:4000/logout'
     // $.removeCookie("token", { path: "/" });
-    // document.cookie = token + '=; expires=Thu, 01 Jan 1999 00:00:10 GMT;';
-  }
+//     // document.cookie = token + '=; expires=Thu, 01 Jan 1999 00:00:10 GMT;';
+//   }
