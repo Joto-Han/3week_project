@@ -17,6 +17,8 @@ module.exports = (req, res, next) => {
   try {
     console.log("[1]authToken:", authToken);
     const userId = jwt.verify(authToken, "customized-secret-key");
+    console.log(userId);
+    console.log(userId.user_id);
     // let {user_id, iat, exp} = userId
     // let {user_id:a} = user_id
     // console.log("a : ", a);

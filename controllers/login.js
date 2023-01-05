@@ -1,14 +1,15 @@
 const loginService = require('../services/login.service');
-const authmiddleware = require("../middleware/auth-middleware")
 
 class loginController {
   logService = new loginService();
 
   getlogin = async (req, res, next) => {
     const { nickname, password } = req.body;
+    console.log("컨트롤러 단계에서의 닉네임", nickname);
+    console.log("컨트롤러 단계에서의 패스워드", password);
 
     if(!nickname || !password) {
-      res.status(400).json({errorMessage: "닉네임과 비밀번호를 입력해주세요."})
+      return res.status(400).json({errorMessage: "닉네임과 비밀번호를 입력해주세요."})
     }
     
     try {
@@ -20,9 +21,9 @@ class loginController {
       res.cookie("token", token);
       res.status(201).json({token: token})
       next
-
+      return
     } catch(err) {
-      res.status(445).json({errorMessage: " 로그인 실패 에러!!"})
+      return res.status(445).json({errorMessage: " 로그인 실패 에러!!"})
     }
 
     // const loginData = await this.logService.userlogin(nickname, password);

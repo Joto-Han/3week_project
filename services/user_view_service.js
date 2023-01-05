@@ -13,7 +13,8 @@ class UserViewService {
     //   user_id
     // );
     // console.log({ findUserData });
-
+      console.log(user_id);
+      console.log(findWashData);
     return {
       createdAt: findWashData.createdAt,
       status: findWashData.status,
