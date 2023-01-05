@@ -25,7 +25,7 @@ class WashListController {
         throw new Error("진행중인 세탁이 있습니다.");
       }
       const { wash_id, status } = req.body;
-      // console.log("controller shop_id = ", shop_id);
+      console.log("controller wash_id = ", wash_id);
       const statusUpdate = await this.washListService.statusUpdate(
         shop_id,
         shop_status,
@@ -33,7 +33,7 @@ class WashListController {
         status
       );
 
-      res.status(201).json({ message: "세탁물 선택 완료" });
+      res.status(201).json({ message: "세탁물 선택 완료", wash_id: wash_id });
     } catch (error) {
       res.status(400).json({ errorMessege: error.message });
     }

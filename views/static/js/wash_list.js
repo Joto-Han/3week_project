@@ -24,7 +24,7 @@ function washList() {
         alt=""
         />
         <div class="wash_list_bottom">
-            <input type="hidden" class="wash_id" value="${wash_id} />
+            <input type="hidden" class="wash_id" value="${wash_id}" />
             <p class="extra">
             ${extra}
             </p>
@@ -47,13 +47,14 @@ const body = document.querySelector("body");
 body.addEventListener("click", function (e) {
   if (e.target.classList[0] != "wash_btn") return;
   const wash_id = e.target.parentElement.children[0].value;
-  // console.log("🔥🔥🔥 wash_id 🔥🔥🔥", wash_id);
   const status = 0;
+
   $.ajax({
     type: "PUT",
     url: "/api/wash_list",
     data: { wash_id, status }, // = > controller(req.body)
     success: function (response) {
+      // const clickWash_id = response.wash_id.split(" ")[0];
       console.log("🔥🔥🔥 response 🔥🔥🔥", response.wash_id);
       alert("세탁물 선택이 완료되었습니다!");
       location.href =

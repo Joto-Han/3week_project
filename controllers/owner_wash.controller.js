@@ -26,14 +26,12 @@ class OwnerWashController {
   statusUpdate = async (req, res, next) => {
     try {
       const { wash_id } = req.params;
-      const { status } = req.body;
+      // const { status } = req.body;
 
-      if (!wash_id || !status) throw new Error("InvalidParamsError");
+      if (!wash_id) throw new Error("InvalidParamsError");
 
-      const statusUpdate = await this.ownerWashService.statusUpdate(
-        wash_id,
-        status
-      );
+      const statusUpdate = await this.ownerWashService.statusUpdate(wash_id);
+      console.log("🔥🔥🔥 statusUpdate 🔥🔥🔥", statusUpdate);
 
       res.status(200).json({ data: statusUpdate });
     } catch (error) {

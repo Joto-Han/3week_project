@@ -5,17 +5,10 @@ class OwnerWashService {
   ownerWashRepository = new OwnerWashRepository(wash_list);
 
   findOwnerWashById = async (wash_id, shop_id) => {
-    console.log("2");
-    // console.log("res.locals.user = ", res.locals.user);
-    // const { shop_id } = res.locals.user;
-    console.log("2-1");
-
     const findWashData = await this.ownerWashRepository.findOwnerWashById(
       wash_id
     );
     if (findWashData.shop_id !== shop_id) {
-      // console.log("findWashData.shop_id =", findWashData.shop_id);
-      // console.log("shop_id =", shop_id);
       return res.status(400).json({ success: false });
     }
     const findUserData = await this.ownerWashRepository.findUserWashById(
@@ -39,9 +32,9 @@ class OwnerWashService {
     };
   };
 
-  statusUpdate = async (wash_id, status) => {
+  statusUpdate = async (wash_id) => {
     const findWash = await this.ownerWashRepository.findOwnerWashById(wash_id);
-    if (!findWash) throw new Error("Wash_list doesn't exist");
+    if (!findWash) throw new Error("진행중인 세탁이 없거나 잘못된 접근입니다.");
 
     const statusUpdate = await this.ownerWashRepository.findOwnerWashById(
       wash_id
@@ -55,9 +48,11 @@ class OwnerWashService {
     }
     if (statusUpdate.status === 3) {
       updateStatus = 4;
-    }
-    if (statusUpdate.status === 4) {
-      // 상태 업데이트 버튼 숨기기
+      // const shopStatusFindZero =
+      //   await this.ownerWashRepository.shopStatusFindZero(statusUpdate.shop_id);
+      const shopStatusZero = await this.ownerWashRepository.shopStatusZero(
+        statusUpdate.shop_id
+      );
     }
 
     await this.ownerWashRepository.statusUpdate(wash_id, updateStatus);

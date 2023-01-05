@@ -3,11 +3,9 @@ const { wash_list, shop } = require("../models");
 class WashListRepository {
   findWashAll = async () => {
     try {
-      console.log("🔥🔥🔥 3 🔥🔥🔥");
       const washList = await wash_list.findAll({
         where: { status: 0 },
       });
-      console.log("🔥🔥🔥 3-1 🔥🔥🔥");
 
       return washList;
     } catch (error) {

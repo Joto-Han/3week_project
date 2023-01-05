@@ -63,11 +63,9 @@
     color: var(--sub-color-2);
 }
 
-.status_1 {
-    color: var(--point-color)
-}
 
-.status_update_btn {
+
+.status_update_btn, .wash_list_btn {
     position: absolute;
     bottom: 40px;
     width: 620px;
@@ -79,4 +77,8 @@
     border-radius: 30px;
     text-align: center;
     cursor: pointer;
+}
+
+.wash_list_btn {
+    display:none
 }
