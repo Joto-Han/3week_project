@@ -2,17 +2,17 @@ const { Router } = require("express");
 const express = require("express");
 const app = express();
 const router = express.Router();
-const { cookeParser } = require("cookie-parser")
+const { cookeParser } = require("cookie-parser");
 
 router.get("/", (req, res) => {
-    res.render("login.ejs");
-  });
+  res.render("login.ejs");
+});
 router.get("/mypage", (req, res) => {
   res.render("mypage.ejs");
 });
 router.get("/laundry_add", (req, res) => {
-    res.render("laundry_add.ejs");
-  });
+  res.render("laundry_add.ejs");
+});
 router.get("/my_info_edit", (req, res) => {
   res.render("my_info_edit.ejs");
 });
@@ -34,14 +34,14 @@ router.get("/shop_review", (req, res) => {
 router.get("/shop_wash_list", (req, res) => {
   res.render("shop_wash_list.ejs");
 });
-router.get("/shop_wash_status", (req, res) => {
-    res.render("shop_wash_status.ejs");
-  });
+router.use("/shop_wash_status", (req, res) => {
+  res.render("shop_wash_status.ejs");
+});
 router.get("/logout", (req, res) => {
-    res.clearCookie('id');
-    res.clearCookie('token');
-    res.clearCookie('pw');
-    res.render("logout.ejs")
+  res.clearCookie("id");
+  res.clearCookie("token");
+  res.clearCookie("pw");
+  res.render("logout.ejs");
 });
 
 module.exports = router;
