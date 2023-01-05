@@ -20,5 +20,4 @@ class ReviewPostController {
     res.status(201).json({ data: reviewPostData });
   };
 }
-
 module.exports = ReviewPostController;

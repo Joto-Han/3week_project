@@ -5,8 +5,7 @@ const { shop } = require("../models");
 const cookieParser = require("cookie-parser"); //
 
 router.use(cookieParser()); //
-
-module.exports = async (req, res, next) => {
+module.exports = (req, res, next) => {
   const { cookie } = req.headers;
   const [authType, authToken] = (cookie || "").split("=");
 
@@ -21,7 +20,7 @@ module.exports = async (req, res, next) => {
     console.log("[1]authToken:", authToken);
     const shopId = jwt.verify(authToken, "customized-secret-key");
 
-    await shop.findByPk(shopId.shop_id).then((shop) => {
+    shop.findByPk(shopId.shop_id).then((shop) => {
       res.locals.user = shop.dataValues;
       next();
     });
