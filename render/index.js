@@ -34,7 +34,7 @@ router.get("/shop_review", (req, res) => {
 router.get("/shop_wash_list", (req, res) => {
   res.render("shop_wash_list.ejs");
 });
-router.use("/shop_wash_status", (req, res) => {
+router.get("/shop_wash_status", (req, res) => {
   res.render("shop_wash_status.ejs");
 });
 router.get("/logout", (req, res) => {
