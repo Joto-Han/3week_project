@@ -11,6 +11,14 @@ class RegisterController {
     console.log("레지스트 컨트롤러")
     res.status(201).json({ data: createRegiData });
   }
+
+  editUser = async (req,res,next) => {
+    const { nickname, password, phone_number, address } = req.body;
+
+    const editUserData = await this.regiService.edituser(nickname,password,phone_number,address)
+    res.status(222).json({ data:editUserData})
+
+  }
 }
 
 module.exports = RegisterController;

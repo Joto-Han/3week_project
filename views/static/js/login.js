@@ -4,23 +4,28 @@ function login_user() {
   const nickname = $("#nickname").val();
   const password = $("#password").val();
 
-  $.ajax({
-    type: "POST",
-    url: "/api/auth",
-    data: {
-      nickname,
-      password,
-    },
-    success: function (response) {
-      alert(`로그인 성공, 환영합니다 ${nickname}님`);
-      token = response.token;
-      setloginuser();
-    },
-    error: function (error) {
-      alert("로그인 실패..............");
-    },
-  });
-}
+    if (!nickname || !password) {
+        alert("닉네임 또는 비밀번호가 입력되지 않았습니다.")
+    } else {
+        $.ajax({
+            type: 'POST',
+            url: '/api/auth',
+            data: {
+              nickname, password
+            },
+            success: function (response) {
+                alert(`로그인 성공, 환영합니다 ${nickname}님`)
+                token = response.token;
+                console.log(token);
+                setloginuser();
+            }, error: function (error) {
+                alert("로그인 실패..............")
+                console.log("에러이유:", error);
+                    },
+                })
+            }
+    }
+
 function setloginuser() {
   if (token) {
     // console.log(token);
@@ -38,26 +43,29 @@ function setloginuser() {
 }
 
 function login_shop() {
-  const shop_name = $("#nickname").val();
-  const password = $("#password").val();
+    const shop_name = $('#nickname').val();
+    const password = $('#password').val();
 
-  $.ajax({
-    type: "POST",
-    url: "/api/auth_shop",
-    data: {
-      shop_name,
-      password,
-    },
-    success: function (response) {
-      alert(`로그인 성공, 환영합니다 ${shop_name}님`);
-      token = response.token;
-      setloginshop();
-    },
-    error: function (error) {
-      alert("로그인 실패..............");
-    },
-  });
-}
+    if (!nickname || !password) {
+        alert("닉네임 또는 비밀번호가 입력되지 않았습니다.")
+    } else {
+
+        $.ajax({
+            type: 'POST',
+            url: '/api/auth_shop',
+            data: {
+              shop_name, password
+            },
+            success: function (response) {
+                alert(`로그인 성공, 환영합니다 ${shop_name}님`)
+                token = response.token;
+                setloginshop();
+            }, error: function (error) {
+                alert("로그인 실패..............")
+                    },
+                })
+            }
+    }
 function setloginshop() {
   if (token) {
     // console.log(token);

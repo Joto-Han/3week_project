@@ -21,7 +21,7 @@ class loginController {
       next
 
     } catch(err) {
-      res.sgetatus(445).json({errorMessa: " 로그인 실패 에러!!"})
+      res.status(445).json({errorMessa: " 로그인 실패 에러!!"})
     }
   }
 }
