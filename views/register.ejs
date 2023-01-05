@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>::: 회원가입 :::</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../static/css/reset.css" />
+    <link rel="stylesheet" href="../static/css/sign.css" />
+  </head>
+  <body>
+    <div class="sign_wrap">
+      <div class="register_wrap">
+        <h2>JOIN</h2>
+        <ul class="user_type">
+          <li class="user_register">사용자 회원가입</li>
+          <li class="shop_register">사업자 회원가입</li>
+        </ul>
+        <label for="">
+          <input type="text" name="nickname" placeholder="닉네임(매장명)" />
+          <span class="nickname_check">중복확인</span>
+        </label>
+        <label for="">
+          <input type="password" name="password" placeholder="비밀번호" />
+          <span class="password_check">비밀번호가 다릅니다.</span>
+        </label>
+        <label for="">
+          <input type="password" name="password2" placeholder="비밀번호 확인" />
+          <span class="password_check">비밀번호가 다릅니다.</span>
+        </label>
+        <input type="text" name="phone_number" placeholder="연락처" />
+        <input type="text" name="address" placeholder="주소" />
+
+        <input
+          class="user_signup"
+          type="submit"
+          name="user_signup_submit"
+          value="회원가입하기"
+        />
+        <input
+          class="shop_signup"
+          type="submit"
+          name="shop_signup_submit"
+          value="회원가입하기"
+        />
+      </div>
+    </div>
+  </body>
+</html>
