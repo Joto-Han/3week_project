@@ -6,14 +6,14 @@ class WashListService {
   findWashAll = async () => {
     try {
       const washListData = await this.washListRepository.findWashAll();
-
+      console.log("service 1단계")
       return washListData.map((data) => {
         return {
           wash_id: data.wash_id,
           status: data.status,
           extra: data.extra,
           image: data.image,
-          wash_id
+          wash_id: data.wash_id
         };
       });
     } catch (error) {

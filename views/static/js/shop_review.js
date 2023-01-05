@@ -17,7 +17,7 @@ function reviewList() {
                 let shop_name = rows[i].shop_name
                 let star_rating = rows[i].star_rating
                 let createdAt = rows[i].createdAt
-                let nickname = rows[i].user.nickname
+                let nickname = rows[i].nickname
                 let temp_html = `
                 <div class="review_wrap">
         <ul class="review_data_wrap">

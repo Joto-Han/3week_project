@@ -32,7 +32,7 @@ module.exports = (req, res, next) => {
 
     shop.findByPk(shopId.shop_id).then((shop) => {
       res.locals.user = shop.dataValues;
-      console.log(res.locals.user);
+      console.log("[2]",res.locals.user);
       next();
     });
   } catch (err) {

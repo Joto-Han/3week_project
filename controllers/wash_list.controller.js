@@ -4,9 +4,10 @@ class WashListController {
   washListService = new WashListService();
 
   findWashAll = async (req, res, next) => {
+    console.log("컨트롤러 단계 1");
     try {
       const washList = await this.washListService.findWashAll();
-
+    console.log("워시리스트:",washList)        
       res.status(201).json({ data: washList });
     } catch (error) {
       res.status(400).json({ errorMessege: error.message });

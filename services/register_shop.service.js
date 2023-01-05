@@ -20,6 +20,21 @@ class RegiService {
       shop_status: createRegiData.shop_status,
     };
   }
+
+  edituser = async (shop_name,password,shop_number,address) => {
+    const edituserdata = await this.regiRepository.edituser(shop_name,password,shop_number,address)
+    return {
+      shop_id: edituserdata.null,
+      shop_name: edituserdata.shop_name,
+      password: edituserdata.password,
+      shop_number: edituserdata.shop_number,
+      address: edituserdata.address,
+      createdAt: edituserdata.createdAt,
+      updatedAt: edituserdata.updatedAt,
+      point: edituserdata.point,
+      status: edituserdata.status
+    }
+  }
 }
 
 module.exports = RegiService;

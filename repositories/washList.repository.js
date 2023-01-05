@@ -6,7 +6,8 @@ class WashListRepository {
       const washList = await wash_list.findAll({
         where: { status: 0 },
       });
-
+      console.log("레파짓1단계")
+      console.log("레파짓에서의 워시리스트: " ,washList)
       return washList;
     } catch (error) {
       throw error;
