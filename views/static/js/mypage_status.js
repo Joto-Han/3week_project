@@ -64,31 +64,31 @@ function mypage_status(id) {
           />
           </div>`;
         $("#mypage").append(temp_html);
+        const $status0 = get(".status_0");
+        const $status1 = get(".status_1");
+        const $status2 = get(".status_2");
+        const $status3 = get(".status_3");
+        const $status4 = get(".status_4");
+        const $user_confirm = get(".user_confirm");
+        const $review_write = get(".review_write");
+        if (status === 0) {
+          $status0.style.color = "#33c1bd";
+        } else if (status === 1) {
+          $status1.style.color = "#33c1bd";
+        } else if (status === 2) {
+          $status2.style.color = "#33c1bd";
+        } else if (status === 3) {
+          $status3.style.color = "#33c1bd";
+        } else if (status === 4) {
+          $status4.style.color = "#33c1bd";
+          $user_confirm.style.display = "block";
+        }
       }
     },
   });
 }
 
 // console.log("✨✨✨ 현재 status ✨✨✨", status);
-// const $status0 = get(".status_0");
-// const $status1 = get(".status_1");
-// const $status2 = get(".status_2");
-// const $status3 = get(".status_3");
-// const $status4 = get(".status_4");
-// const $user_confirm = get(".user_confirm");
-// const $review_write = get(".review_write");
-// if (status === 0) {
-//   $status0.style.color = "#33c1bd";
-// } else if (status === 1) {
-//   $status1.style.color = "#33c1bd";
-// } else if (status === 2) {
-//   $status2.style.color = "#33c1bd";
-// } else if (status === 3) {
-//   $status3.style.color = "#33c1bd";
-// } else if (status === 4) {
-//   $status4.style.color = "#33c1bd";
-//   $user_confirm.style.display = "block";
-// }
 
 function user_confirm() {
   // const $user_confirm = get(".user_confirm");
