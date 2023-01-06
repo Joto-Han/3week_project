@@ -4,7 +4,7 @@ class ReviewController {
   reviewService = new ReviewService();
 
   reviewList =  async (req, res, next) => {
-
+    
     const { shop_name } = res.locals.user;
     
     try {
