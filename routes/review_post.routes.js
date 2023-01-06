@@ -1,9 +1,16 @@
 const express = require("express");
 const router = express.Router();
+const authmiddleware = require("../middleware/auth-middleware");
 
 const ReviewPostController = require("../controllers/review_post.controller");
 const reviewPostController = new ReviewPostController();
+const { upload } = require("../multer");
 
-router.post("/review/:shop_name", reviewPostController.reviewPost);
+router.post(
+  "/review_post",
+  upload.single("file"),
+  authmiddleware,
+  reviewPostController.reviewPost
+);
 
 module.exports = router;
