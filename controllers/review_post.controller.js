@@ -7,6 +7,7 @@ class ReviewPostController {
     const { user_id } = res.locals.user;
     const { shop_name } = req.params;
     const { image, star_rating, content } = req.body;
+    console.log("3", req.body);
     const reviewPostData = await this.reviewPostService.reviewPost(
       shop_name,
       user_id,
