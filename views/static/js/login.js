@@ -17,7 +17,6 @@ function login_user() {
       success: function (response) {
         alert(`로그인 성공, 환영합니다 ${nickname}님`);
         token = response.token;
-        console.log(token);
         setloginuser();
       },
       error: function (error) {
@@ -37,8 +36,10 @@ function setloginuser() {
       data: {},
       success: function (response) {
         let user_data = response.user;
-        // console.log(user_data);
-        location.href = "http://localhost:4000/mypage";
+        console.log("user_data = ✨✨✨", user_data);
+        let user_id = response.user.user_id;
+        console.log("user_id = ✨✨✨", user_id);
+        location.href = "http://localhost:4000/mypage?id=" + user_id;
       },
     });
   }
@@ -47,7 +48,6 @@ function setloginuser() {
 function login_shop() {
   const shop_name = $("#nickname").val();
   const password = $("#password").val();
-  console.log("111");
   if (!nickname || !password) {
     alert("닉네임 또는 비밀번호가 입력되지 않았습니다.");
   } else {
@@ -61,7 +61,6 @@ function login_shop() {
       success: function (response) {
         alert(`로그인 성공, 환영합니다 ${shop_name}님`);
         token = response.token;
-        console.log("222");
 
         setloginshop();
       },
@@ -72,8 +71,6 @@ function login_shop() {
   }
 }
 function setloginshop() {
-  console.log("333");
-
   if (token) {
     $.ajax({
       type: "get",
