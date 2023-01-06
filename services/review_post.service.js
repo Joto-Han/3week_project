@@ -4,20 +4,22 @@ const { review } = require("../models");
 class ReviewPostService {
   reviewPostRepository = new ReviewPostRepository(review);
   // 리뷰 작성하기
-  reviewPost = async (shop_name, user_id, image, star_rating, content) => {
+  reviewPost = async (content, star_rating, image, user_id) => {
+    const userData = await this.reviewPostRepository.findShop(user_id);
+
     const reviewData = await this.reviewPostRepository.reviewPost(
-      shop_name,
-      user_id,
-      image,
+      content,
       star_rating,
-      content
+      image,
+      user_id,
+      shop_name
     );
     return {
-      shop_name,
-      user_id,
-      image,
-      star_rating,
-      content,
+      content: reviewData.content,
+      star_rating: reviewData.star_rating,
+      image: reviewData.image,
+      user_id: reviewData.user_id,
+      shop_name: userData.shop_name,
     };
   };
 }

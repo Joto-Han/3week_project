@@ -13,7 +13,8 @@ const reviewRouter = require("./review.router");
 const userReviewRouter = require("./review_post.routes");
 const washAddRouter = require("./wash_add.routes");
 const userViewRouter = require("./user_view.routes");
-const userMyReviewRouter = require("./user_review.routes")
+const reviewPostRouter = require("./review_post.routes");
+const userMyReviewRouter = require("./user_review.routes");
 const authMiddleware = require("../middleware/auth-middleware");
 const shopmiddleware = require("../middleware/auth-middleware_shop");
 const logiController = require("../controllers/login_shop");
@@ -31,6 +32,7 @@ router.use(
   reviewRouter,
   washAddRouter,
   userViewRouter,
+  reviewPostRouter,
   userReviewRouter,
   userMyReviewRouter
 );
