@@ -31,6 +31,8 @@ function mypage_status(id) {
       // console.log(response);
       const data = response.data;
       // console.log(data);
+
+      const statusName = ["대기중", "수거중", "수거완료", "배송중", "배송완료"];
       for (let i in data) {
         let status = data[i].status;
         let shop_name = data[i].shop_name;
@@ -44,15 +46,17 @@ function mypage_status(id) {
         <p class="shop_name">${shop_name}</p>
         <p class="laundry_date">${createdAt}</p>
         <ul class="status_wrap">
-        <li class="status_0">대기중</li>
-        <li class="status_1">수거중</li>
-        <li class="status_2">수거완료</li>
-        <li class="status_3">배송중</li>
-        <li class="status_4">배송완료</li>
+        ${statusName.map(
+          (text, index) =>
+            `<li class="${
+              status === index ? "selected_status" : ""
+            }">${text}</li>`
+        )}
         </ul>
         <input
+        id ="${status === 4 ? "user_confirm_view" : ""}" 
         type="button"
-          class="user_confirm"
+          class="user_confirm "
           onclick="user_confirm()"
           value="세탁완료하기"
         />
@@ -64,31 +68,31 @@ function mypage_status(id) {
           />
           </div>`;
         $("#mypage").append(temp_html);
-        const $status0 = get(".status_0");
-        const $status1 = get(".status_1");
-        const $status2 = get(".status_2");
-        const $status3 = get(".status_3");
-        const $status4 = get(".status_4");
-        const $user_confirm = get(".user_confirm");
-        const $review_write = get(".review_write");
-        if (status === 0) {
-          $status0.style.color = "#33c1bd";
-        } else if (status === 1) {
-          $status1.style.color = "#33c1bd";
-        } else if (status === 2) {
-          $status2.style.color = "#33c1bd";
-        } else if (status === 3) {
-          $status3.style.color = "#33c1bd";
-        } else if (status === 4) {
-          $status4.style.color = "#33c1bd";
-          $user_confirm.style.display = "block";
-        }
       }
     },
   });
 }
 
 // console.log("✨✨✨ 현재 status ✨✨✨", status);
+// const $status0 = get(".status_0");
+// const $status1 = get(".status_1");
+// const $status2 = get(".status_2");
+// const $status3 = get(".status_3");
+// const $status4 = get(".status_4");
+// const $user_confirm = get(".user_confirm");
+// const $review_write = get(".review_write");
+// if (status === 0) {
+//   $status0.style.color = "#33c1bd";
+// } else if (status === 1) {
+//   $status1.style.color = "#33c1bd";
+// } else if (status === 2) {
+//   $status2.style.color = "#33c1bd";
+// } else if (status === 3) {
+//   $status3.style.color = "#33c1bd";
+// } else if (status === 4) {
+//   $status4.style.color = "#33c1bd";
+//   $user_confirm.style.display = "block";
+// }
 
 function user_confirm() {
   // const $user_confirm = get(".user_confirm");
