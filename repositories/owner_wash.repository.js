@@ -1,4 +1,4 @@
-const { wash_list, user } = require("../models");
+const { wash_list, user, shop } = require("../models");
 
 class OwnerWashRepository {
   // constructor(WashListModel, UserModel) {
@@ -23,6 +23,15 @@ class OwnerWashRepository {
       ],
     });
     return userData;
+  };
+
+  shopStatusZero = async (shop_id) => {
+    let zero = 0;
+    const shopStatusZero = await shop.update(
+      { shop_status: zero },
+      { where: { shop_id } }
+    );
+    return shopStatusZero;
   };
 
   statusUpdate = async (wash_id, status) => {

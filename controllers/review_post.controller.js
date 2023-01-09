@@ -4,17 +4,19 @@ class ReviewPostController {
   reviewPostService = new ReviewPostService();
   // 리뷰 작성하기
   reviewPost = async (req, res, next) => {
-    const { shop_name } = req.params;
-    const { image, star_rating, content, nickname } = req.body;
+    const { user_id } = res.locals.user;
+    const { star_rating, content } = req.body;
+
+    const imgPath = req.file.path;
+    const image = imgPath.split("\\")[3];
+
     const reviewPostData = await this.reviewPostService.reviewPost(
-      shop_name,
-      image,
-      star_rating,
       content,
-      nickname
+      star_rating,
+      image,
+      user_id
     );
     res.status(201).json({ data: reviewPostData });
   };
 }
-
 module.exports = ReviewPostController;

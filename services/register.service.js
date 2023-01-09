@@ -19,6 +19,21 @@ class RegiService {
       point: createRegiData.point
     };
   }
+
+  edituser = async (nickname,password,phone_number,address) => {
+    const edituserdata = await this.regiRepository.edituser(nickname,password,phone_number,address)
+    return {
+      user_id: edituserdata.null,
+      nickname: edituserdata.nickname,
+      password: edituserdata.password,
+      phone_number: edituserdata.phone_number,
+      address: edituserdata.address,
+      createdAt: edituserdata.createdAt,
+      updatedAt: edituserdata.updatedAt,
+      point: edituserdata.point
+    }
+  }
+
 }
 
 module.exports = RegiService;

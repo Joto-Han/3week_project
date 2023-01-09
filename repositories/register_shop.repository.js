@@ -24,6 +24,24 @@ class RegiRepository {
       return
     }
   }
+
+  edituser = async (shop_name,password,shop_number,address) => {
+    try {
+      const edit_user_data = await shop.update({
+        shop_name: shop_name,
+        password: password,
+        shop_number: shop_number,
+        address: address,
+      }, {
+        where: {shop_name:shop_name}
+      })
+
+      return edit_user_data
+    } catch(err) {
+      console.log("회원정보 수정중 알 수 없는 에러 발생 : ", err);
+      return
+    }
+  }
 }
 
 module.exports = RegiRepository;
