@@ -1,16 +1,16 @@
 {
   "development": {
     "username": "root",
-    "password": "wnghqkd726",
+    "password": "Guswl1219",
     "database": "laundrif",
-    "host": "express-database.cg21gzirpdhp.ap-northeast-2.rds.amazonaws.com",
+    "host": "127.0.0.1",
     "dialect": "mysql"
   },
   "test": {
     "username": "root",
-    "password": "wnghqkd726",
+    "password": "Guswl1219",
     "database": "laundrif_test",
-    "host": "express-database.cg21gzirpdhp.ap-northeast-2.rds.amazonaws.com",
+    "host": "127.0.0.1",
     "dialect": "mysql",
     "logging": false
   },

@@ -20,7 +20,7 @@ module.exports = {
       name: "fk_reviews_user_id",
       references: {
         table: "users",
-        field: "id",
+        field: "user_id",
       },
       onDelete: "cascade",
       onUpdate: "cascade",
@@ -36,7 +36,7 @@ module.exports = {
       name: "fk_wash_lists_user_id",
       references: {
         table: "users",
-        field: "id",
+        field: "user_id",
       },
       onDelete: "cascade",
       onUpdate: "cascade",

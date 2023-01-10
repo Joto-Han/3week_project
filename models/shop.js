@@ -35,7 +35,7 @@ module.exports = (sequelize, DataTypes) => {
       },
       shop_number: {
         allowNull: false,
-        type: DataTypes.INTEGER,
+        type: DataTypes.STRING,
       },
       point: {
         allowNull: false,

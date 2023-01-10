@@ -24,9 +24,14 @@ module.exports = {
       },
       shop_number: {
         allowNull: false,
-        type: Sequelize.INTEGER,
+        type: Sequelize.STRING,
       },
       point: {
+        allowNull: false,
+        type: Sequelize.INTEGER,
+        defaultValue: 0,
+      },
+      shop_status: {
         allowNull: false,
         type: Sequelize.INTEGER,
         defaultValue: 0,

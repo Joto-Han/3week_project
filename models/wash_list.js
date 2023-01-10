@@ -30,10 +30,10 @@ module.exports = (sequelize, DataTypes) => {
         defaultValue: 0,
       },
       extra: {
-        type: DataTypes.STRING(500),
+        type: DataTypes.STRING,
       },
       image: {
-        type: DataTypes.STRING(500),
+        type: DataTypes.STRING,
       },
     },
     {
@@ -43,4 +43,3 @@ module.exports = (sequelize, DataTypes) => {
   );
   return wash_list;
 };
-
