@@ -7,7 +7,7 @@ const reviewPostController = new ReviewPostController();
 const { upload } = require("../multer");
 
 router.post(
-  "/review_post",
+  "/review_write",
   upload.single("file"),
   authmiddleware,
   reviewPostController.reviewPost

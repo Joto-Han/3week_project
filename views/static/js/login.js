@@ -29,16 +29,13 @@ function login_user() {
 
 function setloginuser() {
   if (token) {
-    // console.log(token);
     $.ajax({
       type: "get",
       url: "api/auth/me",
       data: {},
       success: function (response) {
         let user_data = response.user;
-        console.log("user_data = ✨✨✨", user_data);
         let user_id = response.user.user_id;
-        console.log("user_id = ✨✨✨", user_id);
         location.href = "http://localhost:4000/mypage?id=" + user_id;
       },
     });
@@ -77,10 +74,8 @@ function setloginshop() {
       url: "/api/auth_shop/me",
       data: {},
       success: function (response) {
-        console.log("444");
 
         let user_data = response.user;
-        // console.log("res wash_id = ✨✨✨", response.wash_id);
         if (user_data.shop_status === 0) {
           location.href = "http://localhost:4000/shop_wash_list";
         } else if (user_data.shop_status === 1) {

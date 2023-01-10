@@ -82,3 +82,7 @@
 .wash_list_btn {
     display:none
 }
+
+.selected_status {
+    color: var(--point-color);
+}

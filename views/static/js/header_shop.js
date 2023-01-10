@@ -10,7 +10,6 @@ function getshop_info() {
     url: "/api/auth_shop/me",
     success: function (response) {
       let user_data = response.user;
-      // console.log("token 값 :", token);
       let empty_html = `<h1>Laundr:f</h1>
                                     <ul class="gnb">
                                     <a href="shop_review"><li class="user_review">리뷰관리</li></a>

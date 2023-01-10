@@ -4,8 +4,6 @@ function user_register() {
   const password2 = $("#password2").val();
   const phone_number = $("#phone_number").val();
   const address = $("#address").val();
-  console.log(nickname);
-  console.log(password);
   if (password !== password2) {
     alert("비밀번호를 다시 확인해 주세요.");
   } else {

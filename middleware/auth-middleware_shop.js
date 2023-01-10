@@ -17,7 +17,6 @@ module.exports = (req, res, next) => {
   }
 
   try {
-    console.log("[1]authToken:", authToken);
     const shopId = jwt.verify(authToken, "customized-secret-key");
 
     shop.findByPk(shopId.shop_id).then((shop) => {

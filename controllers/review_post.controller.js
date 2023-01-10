@@ -5,7 +5,7 @@ class ReviewPostController {
   // 리뷰 작성하기
   reviewPost = async (req, res, next) => {
     const { user_id } = res.locals.user;
-    const { star_rating, content } = req.body;
+    const { star_rating, content, shop_id } = req.body;
 
     const imgPath = req.file.path;
     const image = imgPath.split("\\")[3];
@@ -14,7 +14,8 @@ class ReviewPostController {
       content,
       star_rating,
       image,
-      user_id
+      user_id,
+      shop_id
     );
     res.status(201).json({ data: reviewPostData });
   };

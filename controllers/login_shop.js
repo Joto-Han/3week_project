@@ -6,7 +6,6 @@ class loginController {
 
   getlogin = async (req, res, next) => {
     const { shop_name, password } = req.body;
-    console.log("shop_name,password = ✨✨✨", shop_name, password);
 
     if (!shop_name || !password) {
       res

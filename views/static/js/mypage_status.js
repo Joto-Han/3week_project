@@ -12,8 +12,6 @@ $(document).ready(function () {
   }
   const params = getUrlParams();
   const id = params.id;
-  console.log("id ====", id);
-  console.log("params ====", params);
 
   mypage_status(id);
 });
@@ -28,33 +26,34 @@ function mypage_status(id) {
     url: `/api/my_wash_list/${id}`,
     data: {},
     success: function (response) {
-      // console.log(response);
       const data = response.data;
-      // console.log(data);
 
       const statusName = ["대기중", "수거중", "수거완료", "배송중", "배송완료"];
       for (let i in data) {
         let status = data[i].status;
         let shop_name = data[i].shop_name;
+        let shop_id = data[i].shop_id;
         let createdAt = data[i].createdAt.substring(0, 10);
         if (shop_name === undefined) {
           shop_name = "세탁 대기중 입니다.";
         }
+        let status_wrap = "";
+
+        statusName.map((text, index) => {
+          status_wrap += `<li class="${
+            status === index ? "selected_status" : ""
+          }">${text}</li>`;
+        });
 
         let temp_html = `
         <div class="my_laundry">
+        <input type="hidden" class="shop_id" value="${shop_id}" />
         <p class="shop_name">${shop_name}</p>
         <p class="laundry_date">${createdAt}</p>
         <ul class="status_wrap">
-        ${statusName.map(
-          (text, index) =>
-            `<li class="${
-              status === index ? "selected_status" : ""
-            }">${text}</li>`
-        )}
+        ${status_wrap}
         </ul>
-        <input
-        id ="${status === 4 ? "user_confirm_view" : ""}" 
+        <input id ="${status === 4 ? "user_confirm_view" : ""}" 
         type="button"
           class="user_confirm "
           onclick="user_confirm()"
@@ -73,39 +72,12 @@ function mypage_status(id) {
   });
 }
 
-// console.log("✨✨✨ 현재 status ✨✨✨", status);
-// const $status0 = get(".status_0");
-// const $status1 = get(".status_1");
-// const $status2 = get(".status_2");
-// const $status3 = get(".status_3");
-// const $status4 = get(".status_4");
-// const $user_confirm = get(".user_confirm");
-// const $review_write = get(".review_write");
-// if (status === 0) {
-//   $status0.style.color = "#33c1bd";
-// } else if (status === 1) {
-//   $status1.style.color = "#33c1bd";
-// } else if (status === 2) {
-//   $status2.style.color = "#33c1bd";
-// } else if (status === 3) {
-//   $status3.style.color = "#33c1bd";
-// } else if (status === 4) {
-//   $status4.style.color = "#33c1bd";
-//   $user_confirm.style.display = "block";
-// }
-
 function user_confirm() {
-  // const $user_confirm = get(".user_confirm");
   const $review_write = get(".review_write");
   // 세탁소에 정산하기
 
   alert("이용해주셔서 감사합니다!");
-  // $user_confirm.style.display = "none";
   $review_write.style.display = "block";
-}
-
-function review_write() {
-  location.href = "http://localhost:4000/review_write";
 }
 
 function laundry_add() {
@@ -114,5 +86,18 @@ function laundry_add() {
     success: function (response) {
       location.href = "http://localhost:4000/laundry_add";
     },
+  });
+}
+
+// function payment() {
+// 세탁 완료하기 누르면 세탁소에 만원 들어가도록
+// }
+
+function review_write() {
+  const body = document.querySelector("body");
+  body.addEventListener("click", function (e) {
+    if (e.target.classList[0] != "review_write") return;
+    const shop_id = e.target.parentElement.children[0].value;
+    location.href = "http://localhost:4000/review_write?shop_id=" + shop_id;
   });
 }

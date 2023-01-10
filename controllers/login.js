@@ -5,8 +5,6 @@ class loginController {
 
   getlogin = async (req, res, next) => {
     const { nickname, password } = req.body;
-    console.log("getlogin 닉네임", nickname);
-    console.log("getlogin 패스워드", password);
     if (!nickname || !password) {
       return res
         .status(400)
@@ -25,21 +23,6 @@ class loginController {
       return res.status(445).json({ errorMessage: " 로그인 실패 에러!!" });
     }
   };
-
-  // getlogin2 = async (req, res, next) => {
-  //   const { nickname, password } = res.locals.user;
-  //   console.log("getlogin2 닉네임", nickname);
-  //   console.log("getlogin2 패스워드", password);
-  //   try {
-  //     const loginData = await this.logService.finduser(nickname, password);
-  //     res.json({
-  //       result: "success",
-  //       user: res.locals.user,
-  //     });
-  //   } catch (err) {
-  //     return res.status(445).json({ errorMessage: " 로그인 실패 에러!!" });
-  //   }
-  // };
 }
 
 module.exports = loginController;

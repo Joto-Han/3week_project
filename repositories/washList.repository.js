@@ -22,7 +22,6 @@ class WashListRepository {
   };
 
   shopStatusUpdate = async (shop_id, shop_status) => {
-    console.log("레퍼짓 shop_status = ", shop_status);
     const shopStatusUpdate = await shop.update(
       { shop_status },
       { where: { shop_id } }

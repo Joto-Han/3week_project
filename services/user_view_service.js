@@ -8,9 +8,9 @@ class UserViewService {
     const findUserData = await this.userViewRepository.findUserViewById(
       user_id
     );
-
     const returnData = findUserData.map((data) => {
       return {
+        shop_id: data?.dataValues?.shop?.dataValues?.shop_id,
         shop_name: data?.dataValues?.shop?.dataValues?.shop_name, //
         createdAt: data?.createdAt, //
         status: data?.status, //

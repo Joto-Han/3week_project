@@ -10,10 +10,6 @@ class loginService {
     const findShopWash = await this.loginRepository.findShopWash(
       finduser.shop_id
     );
-    // console.log(
-    //   "wash_id_findShopWash = ✨✨✨",
-    //   findShopWash.wash_lists[0].wash_id
-    // );
     if (findShopWash === null) {
       return { shop_id: finduser.shop_id };
     } else {
