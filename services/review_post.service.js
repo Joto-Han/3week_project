@@ -20,6 +20,7 @@ class ReviewPostService {
       image,
       user_id,
       shop_id,
+      review_id
     };
   };
 }

@@ -37,6 +37,10 @@ router.get("/shop_wash_list", (req, res) => {
 router.get("/shop_wash_status", (req, res) => {
   res.render("shop_wash_status.ejs");
 });
+router.get("/my_review_edit", (req, res) => {
+  res.render("my_review_edit")
+})
+
 router.get("/logout", (req, res) => {
   res.clearCookie("id");
   res.clearCookie("token");

@@ -1,14 +1,14 @@
 {
   "development": {
     "username": "root",
-    "password": "Guswl1219",
+    "password": "221114",
     "database": "laundrif",
     "host": "127.0.0.1",
     "dialect": "mysql"
   },
   "test": {
     "username": "root",
-    "password": "Guswl1219",
+    "password": "221114",
     "database": "laundrif_test",
     "host": "127.0.0.1",
     "dialect": "mysql",

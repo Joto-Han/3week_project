@@ -13,6 +13,7 @@ function reviewList() {
         let content = rows[i].content;
         let shop_name = rows[i].shop_name;
         let star_rating = rows[i].star_rating;
+        let review_id = rows[i].review_id;
         let createdAt = rows[i].createdAt.substring(0, 10);
         let nickname = rows[i].nickname;
         let temp_html = `
@@ -31,12 +32,12 @@ function reviewList() {
           </li>
         </ul>
         <p class="review_content">${content}</p>
-        <button class="review_edit">수정</button>
+        <button class="review_edit" onclick="location.href='/my_review_edit?id=${review_id}'">수정</button>
         <button class="review_delete">삭제</button>
       </div>
-       `;
+       `
         $("#my_review").append(temp_html);
       }
-    },
+    }
   });
 }

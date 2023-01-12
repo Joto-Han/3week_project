@@ -13,6 +13,7 @@ const userReviewRouter = require("./review_post.routes");
 const washAddRouter = require("./wash_add.routes");
 const userViewRouter = require("./user_view.routes");
 // const reviewPostRouter = require("./review_post.routes");
+const myReviewEditRouter = require("./my_review_edit.routes");
 const userMyReviewRouter = require("./user_review.routes");
 const authMiddleware = require("../middleware/auth-middleware");
 const shopmiddleware = require("../middleware/auth-middleware_shop");
@@ -32,7 +33,8 @@ router.use(
   userViewRouter,
   // reviewPostRouter,
   userReviewRouter,
-  userMyReviewRouter
+  userMyReviewRouter,
+  myReviewEditRouter
 );
 
 router.get("/auth/me", authMiddleware, async (req, res) => {
